@@ -14,7 +14,7 @@ export default function ReviewResultPage() {
             <span className="text-lg sm:text-xl font-semibold">Achridge College</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            <Link href="/ Home" className="hover:text-gray-300 transition-colors">
+            <Link href="/Home" className="hover:text-gray-300 transition-colors">
               Home
             </Link>
             <Link href="/my-exam" className="hover:text-gray-300 transition-colors">
@@ -23,7 +23,7 @@ export default function ReviewResultPage() {
             <Link href="/Courses" className="hover:text-gray-300 transition-colors">
               Courses
             </Link>
-            <Link href="/Certificates" className="hover:text-gray-300 transition-colors">
+            <Link href="Certificates" className="hover:text-gray-300 transition-colors">
               Certificates
             </Link>
             <Button variant="outline" className="bg-[#FFFBCA] text-[#154D71] hover:bg-gray-100 border-[#FFFBCA]">
@@ -98,7 +98,7 @@ export default function ReviewResultPage() {
                     <Button className="bg-[#154D71] hover:bg-[#0f3a56] text-white text-lg py-6 px-8 rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl flex-1">
                       Review Answers
                     </Button>
-                    <Link href="/Certificate">
+                    <Link href="/certificate-exam2">
                       <Button variant="outline" className="border-2 border-[#154D71] text-[#154D71] hover:bg-[#154D71] hover:text-white text-lg py-6 px-8 rounded-xl transition-all duration-200 flex-1 w-full">
                         Download Certificate
                       </Button>

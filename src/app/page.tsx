@@ -13,22 +13,22 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Graduation Icon" className="w-8 h-8" />
-            <span className="font-semibold text-lg">Acbridge College</span>
+            <span className="font-semibold text-lg" style={{ fontFamily: 'Caveat, cursive' }}>Ashridge College</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <a href="/Home" className="hover:text-gray-300 transition-colors">
               Home
             </a>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <Link href="/my-exam" className="hover:text-gray-300 transition-colors">
               My Exams
-            </a>
+            </Link>
             <Link href="/courses" className="hover:text-gray-300 transition-colors">
               Courses
             </Link>
-            <a href="#" className="hover:text-gray-300 transition-colors">
+            <Link href="/Certificates" className="hover:text-gray-300 transition-colors">
               Certificates
-            </a>
+            </Link>
           </nav>
 
           <Link href="/signup">
@@ -103,8 +103,13 @@ export default function Home() {
 
     {/* Course Card 1 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2" >
+      <div className="mb-2 relative" >
         <img src="/4a1ee7646fbdb5b21e47ed1cc80e6dc80f77da82.jpg" alt="Time Management" className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Time Management Strategies</h3>
       <p className="text-sm text-black-600 mb-2">Beginner</p>
@@ -127,8 +132,13 @@ export default function Home() {
 
     {/* Course Card 2 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2">
+      <div className="mb-2 relative">
         <img src="/5e0714dcab7807fa3c7c7ed361eb642d2737d899.jpg" alt="PMP Exam Preparation"  className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Advanced PMP Exam Preparation</h3>
       <p className="text-sm text-black-600 mb-2">Advanced</p>
@@ -152,8 +162,13 @@ export default function Home() {
 
     {/* Course Card 3 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2">
+      <div className="mb-2 relative">
         <img src="/db99ec7f180167f38cd9f0d2493a695309c7d8e4(1).jpg" alt="Agile Project Management" className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Agile Project Management Basic</h3>
       <p className="text-sm text-black-600 mb-2">Beginner</p>
@@ -177,8 +192,13 @@ export default function Home() {
 
     {/* Course Card 4 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2">
+      <div className="mb-2 relative">
         <img src="/3ce8736f9a955cc99e6c738a725e22541ef37a50.jpg" alt="Quality Management"  className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Quality Management in Projects</h3>
       <p className="text-sm text-black-600 mb-2">Intermediate</p>
@@ -201,8 +221,13 @@ export default function Home() {
 
     {/* Course Card 5 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2">
+      <div className="mb-2 relative">
         <img src="/19f2609de44e5afa92587d563abfcd5e9af712f1.jpg" alt="Leadership for Project Managers" className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Leadership for Project Managers</h3>
       <p className="text-sm text-black-600 mb-2">Beginner</p>
@@ -226,8 +251,13 @@ export default function Home() {
 
     {/* Course Card 6 */}
     <div className="bg-white h-full flex flex-col p-3">
-      <div className="mb-2">
+      <div className="mb-2 relative">
         <img src="/d112bf3e58a6c643703fb26dee0dac402744e78d.jpg" alt="Risk Management"  className="w-full aspect-[16/9] object-cover rounded-lg"/>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 bg-black bg-opacity-50 rounded-full flex items-center justify-center cursor-pointer hover:bg-opacity-70 transition-all">
+            <Video className="w-8 h-8 text-white" />
+          </div>
+        </div>
       </div>
       <h3 className="font-semibold text-lg mb-2">Risk Management for PMP Professionals</h3>
       <p className="text-sm text-black-600 mb-2">Intermediate</p>
@@ -260,45 +290,45 @@ export default function Home() {
   </div>
 
   <div className="relative overflow-hidden">
+    <style jsx global>{`
+      @keyframes float-scroll {
+        0% { transform: translateX(0) translateY(0); }
+        25% { transform: translateX(-12.5%) translateY(-5px); }
+        50% { transform: translateX(-25%) translateY(0); }
+        75% { transform: translateX(-37.5%) translateY(5px); }
+        100% { transform: translateX(-50%) translateY(0); }
+      }
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(28, 110, 164, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(28, 110, 164, 0.6); }
+      }
+      @keyframes bounce-in {
+        0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+        50% { transform: scale(1.05) rotate(2deg); }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
+      }
+      .animate-float-scroll {
+        animation: float-scroll 40s ease-in-out infinite;
+      }
+      .animate-float-scroll:hover {
+        animation-play-state: paused;
+      }
+      .course-card {
+        animation: bounce-in 0.6s ease-out;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .course-card:hover {
+        transform: scale(1.1) rotate(3deg);
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+      .course-card:nth-child(odd) {
+        animation-delay: 0.1s;
+      }
+      .course-card:nth-child(even) {
+        animation-delay: 0.2s;
+      }
+    `}</style>
     <div className="flex gap-6 animate-float-scroll">
-      <style jsx>{`
-        @keyframes float-scroll {
-          0% { transform: translateX(0) translateY(0); }
-          25% { transform: translateX(-12.5%) translateY(-5px); }
-          50% { transform: translateX(-25%) translateY(0); }
-          75% { transform: translateX(-37.5%) translateY(5px); }
-          100% { transform: translateX(-50%) translateY(0); }
-        }
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(28, 110, 164, 0.3); }
-          50% { box-shadow: 0 0 40px rgba(28, 110, 164, 0.6); }
-        }
-        @keyframes bounce-in {
-          0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
-          50% { transform: scale(1.05) rotate(2deg); }
-          100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        .animate-float-scroll {
-          animation: float-scroll 40s ease-in-out infinite;
-        }
-        .animate-float-scroll:hover {
-          animation-play-state: paused;
-        }
-        .course-card {
-          animation: bounce-in 0.6s ease-out;
-          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .course-card:hover {
-          transform: scale(1.1) rotate(3deg);
-          animation: pulse-glow 2s ease-in-out infinite;
-        }
-        .course-card:nth-child(odd) {
-          animation-delay: 0.1s;
-        }
-        .course-card:nth-child(even) {
-          animation-delay: 0.2s;
-        }
-      `}</style>
 
             {/* Course 1 */}
             <div className="flex-shrink-0 course-card">
@@ -467,44 +497,47 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#154D71] text-white mt-16">
-        <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row justify-between gap-10">
-          
-          {/* About Us */}
-          <div className="flex flex-col gap-4 mt-16">
-            <div className="flex items-center gap-3">
-              <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
-              <span className="font-semibold text-white text-xl">Acbridge College</span>
+        <div className="container mx-auto px-4 py-16">
+          {/* Logo Section */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
+            <span className="font-semibold text-white text-xl" style={{ fontFamily: 'Caveat, cursive' }}>Ashridge College</span>
+          </div>
+
+          {/* Footer Links Row */}
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            {/* About Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">About Us</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Who we are</li>
+                <li>Our story</li>
+                <li>Privacy policy</li>
+                <li>Terms and Conditions</li>
+              </ul>
             </div>
-            <h3 className="font-semibold text-white text-lg">About Us</h3>
-            <ul className="space-y-2 text-white text-base">
-              <li>Who we are</li>
-              <li>Our story</li>
-              <li>Privacy policy</li>
-              <li>Terms and Conditions</li>
-            </ul>
-          </div>
 
-          {/* Follow Us */}
-          <div className="flex flex-col gap-4 mt-2">
-            <h3 className="font-semibold text-white text-lg">Follow us</h3>
-            <div className="flex gap-4 mt-2">
-              <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+            {/* Follow Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Follow us</h3>
+              <div className="flex gap-4">
+                <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Useful Links */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Useful Links</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Courses</li>
+                <li>FAQs</li>
+                <li>Certificates</li>
+              </ul>
             </div>
           </div>
-
-          {/* Useful Links */}
-          <div className="flex flex-col gap-4 mt-2">
-            <h3 className="font-semibold text-white text-lg">Useful Links</h3>
-            <ul className="space-y-2 text-white text-base">
-              <li>Courses</li>
-              <li>FAQs</li>
-              <li>Certificates</li>
-            </ul>
-          </div>
-
         </div>
       </footer>
     </div>

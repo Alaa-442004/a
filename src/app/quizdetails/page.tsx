@@ -64,38 +64,38 @@ export default function PMPTest() {
     <div className="relative min-h-screen flex flex-col" style={{ fontFamily: "Inter, sans-serif" }}>
       
       {/* Timer */}
-      <div className="fixed top-6 right-6 flex items-center gap-2 bg-gray-200 rounded-2xl px-6 py-3 shadow-lg z-50">
-        <span className="text-2xl font-bold text-gray-900">
+      <div className="fixed top-4 right-4 md:top-6 md:right-6 flex items-center gap-2 bg-gray-200 rounded-2xl px-4 py-2 md:px-6 md:py-3 shadow-lg z-50">
+        <span className="text-lg md:text-2xl font-bold text-gray-900">
           {minutes}:{seconds.toString().padStart(2, "0")}
         </span>
-        <Clock className="w-8 h-8 text-gray-900" />
+        <Clock className="w-6 h-6 md:w-8 md:h-8 text-gray-900" />
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-12 flex-grow">
+      <div className="max-w-4xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex-grow">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            PMP Practice Test: <br/>
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            PMP Practice Test: <br className="hidden sm:block"/>
             Project Management Basics
           </h1>
         </div>
 
         {/* Questions */}
-        <div className="space-y-12">
+        <div className="space-y-8 md:space-y-12">
           {questions.map((q, i) => (
-            <div key={i}>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{q.question}</h2>
-              <div className="space-y-4">
+            <div key={i} className="bg-white rounded-lg shadow-sm border p-6 md:p-8">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-relaxed">{q.question}</h2>
+              <div className="space-y-3 md:space-y-4">
                 {q.options.map((option, idx) => (
                   <div
                     key={idx}
                     onClick={() => handleOptionClick(i, idx)}
-                    className={`flex items-center px-6 py-4 border rounded-lg cursor-pointer transition-colors
-                      ${answers[i] === idx ? "bg-blue-100 border-blue-500" : "bg-white hover:bg-gray-50"}
+                    className={`flex items-center px-4 py-3 md:px-6 md:py-4 border rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md
+                      ${answers[i] === idx ? "bg-blue-100 border-blue-500 shadow-md" : "bg-white hover:bg-gray-50 border-gray-200"}
                     `}
                   >
-                    <span className="text-lg md:text-xl font-semibold text-gray-900">{option}</span>
+                    <span className="text-base sm:text-lg md:text-xl font-medium text-gray-900 leading-relaxed">{option}</span>
                   </div>
                 ))}
               </div>
@@ -104,10 +104,10 @@ export default function PMPTest() {
         </div>
 
         {/* Finish Button */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-12 md:mt-16 flex justify-center">
           <button
             onClick={handleFinish}
-            className="px-12 py-4 md:px-24 md:py-6 text-white font-bold rounded-lg text-2xl md:text-4xl"
+            className="px-8 py-3 sm:px-12 sm:py-4 md:px-24 md:py-6 text-white font-bold rounded-lg text-lg sm:text-xl md:text-2xl lg:text-4xl transition-all duration-200 hover:opacity-90 shadow-lg"
             style={{ backgroundColor: "#154D71" }}
           >
             Finish
@@ -117,44 +117,47 @@ export default function PMPTest() {
 
       {/* Footer */}
       <footer className="bg-[#154D71] text-white mt-16">
-        <div className="container mx-auto px-4 py-16 flex flex-col md:flex-row justify-between gap-10">
-          
-          {/* About Us */}
-          <div className="flex flex-col gap-4 mt-16">
-            <div className="flex items-center gap-3">
-              <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
-              <span className="font-semibold text-white text-xl">Acbridge College</span>
+        <div className="container mx-auto px-4 py-16">
+          {/* Logo Section */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
+            <span className="font-semibold text-white text-xl" style={{ fontFamily: 'Caveat, cursive' }}>Ashridge College</span>
+          </div>
+
+          {/* Footer Links Row */}
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            {/* About Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">About Us</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Who we are</li>
+                <li>Our story</li>
+                <li>Privacy policy</li>
+                <li>Terms and Conditions</li>
+              </ul>
             </div>
-            <h3 className="font-semibold text-white text-lg">About Us</h3>
-            <ul className="space-y-2 text-white text-base">
-              <li>Who we are</li>
-              <li>Our story</li>
-              <li>Privacy policy</li>
-              <li>Terms and Conditions</li>
-            </ul>
-          </div>
 
-          {/* Follow Us */}
-          <div className="flex flex-col gap-4 mt-2">
-            <h3 className="font-semibold text-white text-lg">Follow us</h3>
-            <div className="flex gap-4 mt-2">
-              <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+            {/* Follow Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Follow us</h3>
+              <div className="flex gap-4">
+                <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Useful Links */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Useful Links</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Courses</li>
+                <li>FAQs</li>
+                <li>Certificates</li>
+              </ul>
             </div>
           </div>
-
-          {/* Useful Links */}
-          <div className="flex flex-col gap-4 mt-2">
-            <h3 className="font-semibold text-white text-lg">Useful Links</h3>
-            <ul className="space-y-2 text-white text-base">
-              <li>Courses</li>
-              <li>FAQs</li>
-              <li>Certificates</li>
-            </ul>
-          </div>
-
         </div>
       </footer>
     </div>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -33,7 +35,7 @@ export default function LessonPage() {
               alt="Graduation Icon"
               className="w-10 h-10"
             />
-            <span className="font-semibold text-xl">Acbridge College</span>
+            <span className="font-semibold text-xl">Achridge College</span>
           </div>
 
           <nav className="hidden md:flex gap-8 font-medium text-base">
@@ -183,6 +185,22 @@ export default function LessonPage() {
 
           {/* Right side - Horizontal Lesson Cards */}
           <div className="flex-1">
+            <style jsx>{`
+              .lesson-card {
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                cursor: pointer;
+              }
+              .lesson-card:hover {
+                transform: scale(1.05);
+              }
+              .lesson-card:hover .play-overlay {
+                opacity: 1;
+              }
+              .play-overlay {
+                opacity: 0;
+                transition: opacity 0.3s ease;
+              }
+            `}</style>
             <div className="flex gap-4 overflow-x-auto pb-4">
               {/* Horizontal Lesson Cards */}
               {[
@@ -192,9 +210,15 @@ export default function LessonPage() {
                 { title: "Avoiding Distractions", img: "/b2f405819fca34a54a03044b1b382251aaa8d1f6.png", duration: "8 min" },
                 { title: "Daily Planning Methods", img: "/b537f28cdfde47cd3c53abe24fbf80af1337a472.png", duration: "9 min" },
               ].map((lesson, idx) => (
-                <Card key={idx} className="flex-shrink-0" style={{ width: "162px", height: "234px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card key={idx} className="flex-shrink-0 lesson-card" style={{ width: "162px", height: "234px" }}>
+                  <div className="aspect-video bg-gray-200 relative overflow-hidden">
                     <img src={lesson.img} alt={lesson.title} className="w-full h-full object-cover" />
+                    {/* Play Overlay */}
+                    <div className="play-overlay absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <Play className="w-6 h-6 text-gray-900 ml-1" />
+                      </div>
+                    </div>
                   </div>
                   <CardContent className="p-3">
                     <h3 className="font-semibold text-sm mb-1">{lesson.title}</h3>
@@ -216,61 +240,47 @@ export default function LessonPage() {
       </main>
 
       {/* Footer */}
-      <footer style={{ backgroundColor: "#154D71" }} className="text-white flex justify-center">
-        <div
-          className="flex justify-between"
-          style={{
-            width: "1440px",
-            height: "380px",
-            opacity: 1,
-            fontFamily: "Inter, sans-serif",
-            fontWeight: 400,
-            fontSize: "21.58px",
-            lineHeight: "150%",
-            letterSpacing: "-1.1%",
-            padding: "50px 40px",
-            boxSizing: "border-box",
-            alignItems: "flex-start",
-          }}
-        >
-          {/* About Us */}
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="/9987eb512151b450fd789b926391e339764420c7.png"
-                alt="Logo"
-                className="w-10 h-10"
-              />
-              <span className="font-semibold text-white text-xl">Acbridge College</span>
-            </div>
-            <h3 className="font-semibold text-white text-lg">About Us</h3>
-            <ul className="space-y-2 text-white text-base">
-              <li>Who we are</li>
-              <li>Our story</li>
-              <li>Privacy policy</li>
-              <li>Terms and Conditions</li>
-            </ul>
+      <footer className="bg-[#154D71] text-white mt-16">
+        <div className="container mx-auto px-4 py-16">
+          {/* Logo Section */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
+            <span className="font-semibold text-white text-xl">Achridge College</span>
           </div>
 
-          {/* Follow Us */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-white text-lg">Follow us</h3>
-            <div className="flex gap-4 mt-2">
-              <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-              <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+          {/* Footer Links Row */}
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            {/* About Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">About Us</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Who we are</li>
+                <li>Our story</li>
+                <li>Privacy policy</li>
+                <li>Terms and Conditions</li>
+              </ul>
             </div>
-          </div>
 
-          {/* Useful Links */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-semibold text-white text-lg">Useful Links</h3>
-            <ul className="space-y-2 text-white text-base mt-2">
-              <li>Courses</li>
-              <li>FAQs</li>
-              <li>Certificates</li>
-            </ul>
+            {/* Follow Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Follow us</h3>
+              <div className="flex gap-4">
+                <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Useful Links */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Useful Links</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Courses</li>
+                <li>FAQs</li>
+                <li>Certificates</li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>

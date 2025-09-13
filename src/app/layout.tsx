@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ExamProvider } from "@/contexts/ExamContext";
 
 export const metadata = {
   title: "Alshardge",
@@ -22,7 +23,11 @@ export default function RootLayout({
         <title>Alshardge</title>
       </head>
 
-      <body className="bg-gray-100 text-gray-900">{children}</body>
+      <body className="bg-gray-100 text-gray-900">
+        <ExamProvider>
+          {children}
+        </ExamProvider>
+      </body>
     </html>
   );
 }

@@ -48,7 +48,7 @@ export default function CoursePage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Graduation Icon" className="w-8 h-8" />
-            <span className="font-semibold text-lg">Acbridge College</span>
+            <span className="font-semibold text-lg">Achridge College</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -200,7 +200,7 @@ export default function CoursePage() {
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
-              <span className="font-semibold text-white text-xl">Acbridge College</span>
+              <span className="font-semibold text-white text-xl">Achridge College</span>
             </div>
             <h3 className="font-semibold text-white text-lg">About Us</h3>
             <ul className="space-y-2 text-white text-base">

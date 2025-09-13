@@ -1,49 +1,106 @@
+"use client"
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Star, Clock, ChevronLeft, ChevronRight, Search, Mic, GraduationCap, Twitter, Linkedin, Facebook, Instagram } from "lucide-react"
+import { Star, Clock, ChevronLeft, ChevronRight, Search, Mic, GraduationCap, Twitter, Linkedin, Facebook, Instagram, Menu, X } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function AshridgeCollege() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="text-white px-6 py-4" style={{ backgroundColor: "#154D71" }}>
+      <header className="text-white px-4 sm:px-6 py-4" style={{ backgroundColor: "#154D71" }}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Graduation Icon" className="w-8 h-8" />
-            <span className="font-semibold text-lg">Acbridge College</span>
+            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Graduation Icon" className="w-6 h-6 sm:w-8 sm:h-8" />
+            <span className="font-semibold text-base sm:text-lg" style={{ fontFamily: 'Caveat, cursive' }}>Ashridge College</span>
           </div>
 
 
-          <nav className="hidden md:flex items-center gap-8">
-             <Link href="/" className="hover:text-blue-200 transition-colors">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-8">
+             <Link href="/Home" className="hover:text-blue-200 transition-colors text-sm lg:text-base">
               Home
             </Link>
-            <a href="#" className="hover:text-blue-200 transition-colors">
+            <Link href="/my-exam" className="hover:text-gray-300 transition-colors text-sm lg:text-base">
               My Exams
-            </a>
-            <a href="#" className="hover:text-blue-200 transition-colors">
+            </Link>
+            <Link href="/courses" className="hover:text-gray-300 transition-colors text-sm lg:text-base">
               Courses
-            </a>
-            <a href="#" className="hover:text-blue-200 transition-colors">
+            </Link>
+            <Link href="/Certificates" className="hover:text-blue-200 transition-colors text-sm lg:text-base">
               Certificates
-            </a>
+            </Link>
           </nav>
 
-          <Avatar className="w-10 h-10">
-            <AvatarImage src="/9b47a023caf29f113237d61170f34ad9.jpg" />
-          </Avatar>
+          <div className="flex items-center gap-3">
+            <Link href="/profile">
+              <Avatar className="w-8 h-8 sm:w-10 sm:h-10 cursor-pointer">
+                <AvatarImage src="/9b47a023caf29f113237d61170f34ad9.jpg" />
+              </Avatar>
+            </Link>
+            
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6 text-white" />
+              ) : (
+                <Menu className="w-6 h-6 text-white" />
+              )}
+            </button>
+          </div>
         </div>
+        
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+            <nav className="px-4 py-4 space-y-3">
+              <Link 
+                href="/" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/my-exam" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                My Exams
+              </Link>
+              <Link 
+                href="/courses" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors py-2 font-semibold"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Courses
+              </Link>
+              <a 
+                href="#" 
+                className="block text-gray-700 hover:text-blue-600 transition-colors py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Certificates
+              </a>
+            </nav>
+          </div>
+        )}
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         {/* Recommended Credentials Section */}
         <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-3xl font-bold text-gray-900">Recommended credentials</h1>
-              <div className="relative" style={{ width: "610px", maxWidth: "100%" }}>
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6 gap-4">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Recommended credentials</h1>
+              <div className="relative w-full max-w-md lg:max-w-lg">
               <Search
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5"
                 style={{ color: "#151515" }}
@@ -64,12 +121,12 @@ export default function AshridgeCollege() {
             </div>
           </div>
 
-          <div className="flex gap-4 mb-8">
+          <div className="flex flex-wrap gap-4 mb-8">
             <Button
-              className="text-white rounded-full font-medium"
+              className="text-white rounded-full font-medium flex-shrink-0"
               style={{
                 backgroundColor: "#154D71",
-                width: "150px",
+                minWidth: "120px",
                 height: "42px",
                 color: "white",
               }}
@@ -78,10 +135,10 @@ export default function AshridgeCollege() {
             </Button>
             <Button
               variant="ghost"
-              className="rounded-full font-medium border"
+              className="rounded-full font-medium border flex-shrink-0"
               style={{
                 backgroundColor: "white",
-                width: "150px",
+                minWidth: "120px",
                 height: "42px",
                 color: "#1C6EA4",
                 borderColor: "#1C6EA4",
@@ -93,10 +150,10 @@ export default function AshridgeCollege() {
         </div>
 {/* Time Management Strategies */}
         <section className="mb-12">
-          <div className="flex gap-8 mb-6">
+          <div className="flex flex-col lg:flex-row gap-8 mb-6">
             {/* Left side - Course description and buttons */}
-            <div className="flex-1 max-w-md">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Time Management Strategies</h2>
+            <div className="flex-1 lg:max-w-md">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Time Management Strategies</h2>
               <p className="text-gray-700 mb-4 font-semibold">
                 <span className="font-bold">Skills you will gain:</span> Boost productivity with quick lessons on
                 prioritization, focus, and daily planning. Learn practical techniques in just 5-10 minutes per session.
@@ -110,7 +167,7 @@ export default function AshridgeCollege() {
                   <span>Beginner • 50 minutes • Earn Certificate</span>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <Link href="/lesson">
                   <Button className="text-white" style={{ backgroundColor: "#154D71" }}>
                     Enroll
@@ -125,8 +182,8 @@ export default function AshridgeCollege() {
             {/* Right side - Horizontal lesson cards */}
             <div className="flex-1">
               <div className="flex gap-4 overflow-x-auto pb-4">
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/1b1d64feac27bba3135fe698d4159b905e93dd52.png"
                       alt="Introduction to Time Management"
@@ -142,8 +199,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/3ce8736f9a955cc99e6c738a725e22541ef37a50.jpg"
                       alt="Prioritization Techniques"
@@ -159,8 +216,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/51fb834678cd28afd22ded32193631c189890d53.png"
                       alt="Pomodoro Technique"
@@ -176,8 +233,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/b2f405819fca34a54a03044b1b382251aaa8d1f6.png"
                       alt="Avoiding Distractions"
@@ -193,8 +250,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/b537f28cdfde47cd3c53abe24fbf80af1337a472.png"
                       alt="Daily Planning Methods"
@@ -221,10 +278,10 @@ export default function AshridgeCollege() {
 
         {/* Advanced PMP Exam Preparation */}
         <section className="mb-12">
-          <div className="flex gap-8 mb-6">
+          <div className="flex flex-col lg:flex-row gap-8 mb-6">
             {/* Left side - Course description and buttons */}
-            <div className="flex-1 max-w-md">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Advanced PMP Exam Preparation</h2>
+            <div className="flex-1 lg:max-w-md">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Advanced PMP Exam Preparation</h2>
               <p className="text-gray-700 mb-4 font-semibold">
                 <span className="font-bold">Skills you will gain:</span> Sharpen your PMP® knowledge with<br/> advanced
                 strategies, practice questions, and exam<br/> techniques. Short, focused lessons to boost confidence and<br/> help
@@ -239,7 +296,7 @@ export default function AshridgeCollege() {
                   <span>Beginner • 50 minutes • Earn Certificate</span>
                 </div>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <Button className="text-white" style={{ backgroundColor: "#154D71" }}>
                   Enroll
                 </Button>
@@ -252,8 +309,8 @@ export default function AshridgeCollege() {
             {/* Right side - Horizontal lesson cards */}
             <div className="flex-1">
               <div className="flex gap-4 overflow-x-auto pb-4">
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/c475d005e945eb5ebac49ea975f9fc5e5ac688dc.png"
                       alt="Exam Overview & Key Domains"
@@ -269,8 +326,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/e1da81746d3266b659ac06cb706f5cc76ba15fb5.png"
                       alt="Advanced Project Management Concepts"
@@ -286,8 +343,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/f5c55bd4524d927b076dff8f7d3f3636f3db9d50.png"
                       alt="Critical Path & Advanced Scheduling"
@@ -303,8 +360,8 @@ export default function AshridgeCollege() {
                   </CardContent>
                 </Card>
 
-                <Card className="flex-shrink-0" style={{ width: "162.31px", height: "233.99px" }}>
-                  <div className="aspect-video bg-gray-200">
+                <Card className="flex-shrink-0 w-40 sm:w-44 border-0 shadow-sm">
+                  <div className="h-24 sm:h-28 bg-gray-200 rounded-t-lg overflow-hidden">
                     <img
                       src="/dcd142ecc03c749f2a004c9bfe18cbcddcaf1a4d.png"
                       alt="Risk & Quality Management Deep Dive"
@@ -342,15 +399,15 @@ export default function AshridgeCollege() {
         {/* Full Courses Section */}
         <section className="mb-12">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
               Ready to go <span style={{ color: "#154D71" }}>deeper</span>? Try our{" "}
               <span style={{ color: "#154D71" }}>Full Courses</span>!
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card className="overflow-hidden">
-              <div className="aspect-video bg-gray-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <Card className="overflow-hidden border-0 shadow-lg">
+              <div className="h-48 bg-gray-200 overflow-hidden">
                 <img
                   src="/402a1103f54169e37357eee48e1440c67f6237b7.png"
                   alt="Risk Management Essentials"
@@ -369,8 +426,8 @@ export default function AshridgeCollege() {
               </CardContent>
             </Card>
 
-            <Card className="overflow-hidden">
-              <div className="aspect-video bg-gray-200">
+            <Card className="overflow-hidden border-0 shadow-lg">
+              <div className="h-48 bg-gray-200 overflow-hidden">
                 <img
                   src="/e1da81746d3266b659ac06cb706f5cc76ba15fb5.png"
                   alt="Leadership for Project Managers"
@@ -389,8 +446,8 @@ export default function AshridgeCollege() {
               </CardContent>
             </Card>
 
-            <Card className="overflow-hidden">
-              <div className="aspect-video bg-gray-200">
+            <Card className="overflow-hidden border-0 shadow-lg">
+              <div className="h-48 bg-gray-200 overflow-hidden">
                 <img
                   src="/dcd142ecc03c749f2a004c9bfe18cbcddcaf1a4d.png"
                   alt="PMP Mock Tests"
@@ -424,65 +481,51 @@ export default function AshridgeCollege() {
         </section>
       </main>
 
-     {/* Footer */}
-<footer style={{ backgroundColor: "#154D71" }} className="text-white flex justify-center">
-  <div
-    className="flex justify-between"
-    style={{
-      width: "1440px",
-      height: "380px",
-      opacity: 1,
-      fontFamily: "Inter, sans-serif",
-      fontWeight: 400,
-      fontSize: "21.58px",
-      lineHeight: "150%",
-      letterSpacing: "-1.1%",
-      padding: "50px 40px", 
-      boxSizing: "border-box",
-      alignItems: "flex-start", 
-    }}
-  >
-    {/* About Us */}
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-3">
-        <img
-          src="/9987eb512151b450fd789b926391e339764420c7.png"
-          alt="Logo"
-          className="w-10 h-10"
-        />
-        <span className="font-semibold text-white text-xl">Acbridge College</span>
-      </div>
-      <h3 className="font-semibold text-white text-lg">About Us</h3>
-      <ul className="space-y-2 text-white text-base">
-        <li>Who we are</li>
-        <li>Our story</li>
-        <li>Privacy policy</li>
-        <li>Terms and Conditions</li>
-      </ul>
-    </div>
+      {/* Footer */}
+      <footer style={{ backgroundColor: "#154D71" }} className="text-white mt-16">
+        <div className="container mx-auto px-4 py-16">
+          {/* Logo Section */}
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <img src="/9987eb512151b450fd789b926391e339764420c7.png" alt="Logo" className="w-10 h-10" />
+            <span className="font-semibold text-white text-xl" style={{ fontFamily: 'Caveat, cursive' }}>Ashridge College</span>
+          </div>
 
-    {/* Follow Us */}
-    <div className="flex flex-col gap-4">
-      <h3 className="font-semibold text-white text-lg">Follow us</h3>
-      <div className="flex gap-4 mt-2">
-        <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-        <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-        <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-        <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
-      </div>
-    </div>
+          {/* Footer Links Row */}
+          <div className="flex flex-col md:flex-row justify-between gap-10">
+            {/* About Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">About Us</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Who we are</li>
+                <li>Our story</li>
+                <li>Privacy policy</li>
+                <li>Terms and Conditions</li>
+              </ul>
+            </div>
 
-    {/* Useful Links */}
-    <div className="flex flex-col gap-4">
-      <h3 className="font-semibold text-white text-lg">Useful Links</h3>
-      <ul className="space-y-2 text-white text-base mt-2">
-        <li>Courses</li>
-        <li>FAQs</li>
-        <li>Certificates</li>
-      </ul>
-    </div>
-  </div>
-</footer>
+            {/* Follow Us */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Follow us</h3>
+              <div className="flex gap-4">
+                <Twitter className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Linkedin className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Facebook className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+                <Instagram className="w-6 h-6 text-white hover:text-gray-300 cursor-pointer" />
+              </div>
+            </div>
+
+            {/* Useful Links */}
+            <div className="flex flex-col gap-4">
+              <h3 className="font-semibold text-white text-lg">Useful Links</h3>
+              <ul className="space-y-2 text-white text-base">
+                <li>Courses</li>
+                <li>FAQs</li>
+                <li>Certificates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
